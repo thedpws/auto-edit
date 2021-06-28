@@ -1,5 +1,5 @@
 from __future__ import annotations
-from video_editor.video_editor import VideoEditor
+from .video_editor import VideoEditor
 from moviepy.video import VideoClip
 from moviepy.video.VideoClip import ImageClip
 from moviepy.editor import VideoFileClip
@@ -33,7 +33,7 @@ class ConcreteVideoEditor(VideoEditor):
     def add_lower_thirds(self, name: str, bureau: str):
         pass
 
-    def upload_to_youtube(self, video_name: str):
+    def add_closer(self, filepath: str):
         pass
 
     def write_file(self, name: str):

@@ -20,10 +20,9 @@ def main():
 
     video_url: str = youtube.upload_private('output.png')
 
-    outlets: List[VideoOutlet] = [AzTelegram()]
+    outlet: VideoOutlet = AzTelgram()
 
-    for outlet in outlets:
-        outlet.share_video_url(video_url)
+    outlet.share_video_url(video_url)
 
 
 if __name__=='__main__':
