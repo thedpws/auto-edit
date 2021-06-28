@@ -1,4 +1,5 @@
 from __future__ import annotations
+from video_editor.video_editor import VideoEditor
 from moviepy.video import VideoClip
 from moviepy.video.VideoClip import ImageClip
 from moviepy.editor import VideoFileClip
@@ -6,17 +7,15 @@ from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
 
 from logo import add_logo
 
-def output_video(video_clip: VideoClip, output_filename: str):
-    video_clip.write_videofile(output_filename, temp_audiofile="temp-audio.m4a", remove_temp=True, codec="libx264", audio_codec="aac")
 
+class ConcreteVideoEditor(VideoEditor):
+    def add_logo(self, logo_filepath: str):
 
-video_editor = VideoEditor()
+    def add_lower_thirds(self, name: str, bureau: str):
+        pass
 
-video_editor.add_logo().add_lower_thirds().finalize()
-
-video_editor.add_lower_thirds(name='Klaudine Caday', bureau='Florida')
-
-video_editor.finalize('output.mp4')
+    def write_file(self, name: str):
+        video_clip.write_videofile(name, temp_audiofile="temp-audio.m4a", remove_temp=True, codec="libx264", audio_codec="aac")
 
 
 video_clip = VideoFileClip('resources/IMG_9941.MOV').subclip(0, 1)
