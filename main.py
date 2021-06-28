@@ -20,7 +20,7 @@ def main():
 
     video_url: str = youtube.upload_private('output.png')
 
-    outlet: VideoOutlet = AzTelgram()
+    outlet: VideoOutlet = AzTelegram()
 
     outlet.share_video_url(video_url)
 
