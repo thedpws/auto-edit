@@ -1,6 +1,8 @@
 from __future__ import annotations
 from moviepy.video import VideoClip
-from video_editor import ConcreteVideoEditor, VideoEditor
+from editor import ConcreteVideoEditor, VideoEditor
+from host import YouTube, VideoHost
+from outlet import VideoOutlet, AzTelegram
 
 
 def main():
@@ -10,9 +12,18 @@ def main():
 
     video_editor.add_lower_thirds(name='Aaaaa Bbbbb', bureau='Florida')
 
-    video_editor.add_closer()
+    video_editor.add_closer('resources/ffc2.mp4')
 
     video_editor.write_file('output.mp4')
+
+    youtube: VideoHost = YouTube()
+
+    video_url: str = youtube.upload_private('output.png')
+
+    outlets: List[VideoOutlet] = [AzTelegram()]
+
+    for outlet in outlets:
+        outlet.share_video_url(video_url)
 
 
 if __name__=='__main__':

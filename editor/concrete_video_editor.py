@@ -33,5 +33,8 @@ class ConcreteVideoEditor(VideoEditor):
     def add_lower_thirds(self, name: str, bureau: str):
         pass
 
+    def upload_to_youtube(self, video_name: str):
+        pass
+
     def write_file(self, name: str):
         self.video_clip.write_videofile(name, temp_audiofile="temp-audio.m4a", remove_temp=True, codec="libx264", audio_codec="aac")

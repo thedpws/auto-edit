@@ -12,5 +12,9 @@ class VideoEditor(ABC):
         """Adds lower thirds on beginning and end of the feature."""
 
     @abstractmethod
+    def add_closer(self, filepath: str):
+        """Appends the specified closer at the end of the video."""
+
+    @abstractmethod
     def write_file(self, name: str):
         """Writes the video to the specified filename."""
